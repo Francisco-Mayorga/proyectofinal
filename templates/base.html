@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock title %}| Smartninja</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <meta name="description" content="proyecto final smartninja">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/assets/css/font-awesome.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+        <link rel="stylesheet" href="/assets/css/animate.min.css" type="text/css">
+        <!-- JavaScript files -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="/assets/js/bootstrap.js"></script>
+        <script src="/assets/js/wow.min.js"></script>
+        <script>
+         new WOW().init();
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="{% if activo == '/'%}active{%endif%} navbar-brand" href="/">Bmail</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+              <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav">
+                  <li class="{% if activo == 'recibidos'%}active{%endif%}" ><a href="/recibidos">Recibidos</a></li>
+                  <li class="{% if activo == 'enviados'%}active{%endif%}"><a href="/enviados">Enviados</a></li>
+                  <li class="{% if activo == 'nuevo-mensaje'%}active{%endif%}"><a href="/nuevo-mensaje">Nuevo mensaje</a></li>
+                  <li class="{% if activo == 'el-tiempo'%}active{%endif%}"><a href="/el-tiempo">El tiempo</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    {% if logged_in %}
+                    <a href="{{ logout_url }}" class="btn btn-primary btn-sm active">Logout</a>
+                    {% else %}
+                    <a href="{{ login_url }}" class="btn btn-primary btn-sm active">Login</a>
+                    {% endif %}
+                </form>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+        {% block page_content %}
+        {% endblock page_content %}
+    </body>
+</html>
