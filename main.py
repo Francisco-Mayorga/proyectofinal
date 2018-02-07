@@ -37,7 +37,7 @@ class MainHandler(BaseHandler):
             logged_in = True
             logout_url = users.create_logout_url('/')
 
-            params = {"logged_in": logged_in, "logout_url": logout_url, "user": user}
+            params = {"activo": "/", "logged_in": logged_in, "logout_url": logout_url, "user": user}
         else:
             logged_in = False
             login_url = users.create_login_url('/')
@@ -54,7 +54,7 @@ class EnviadosHandler(BaseHandler):
             logged_in = True
             logout_url = users.create_logout_url('/enviados')
 
-            enviados = {"logged_in": logged_in, "logout_url": logout_url, "user": user}
+            enviados = {"activo": "enviados", "logged_in": logged_in, "logout_url": logout_url, "user": user}
         else:
             logged_in = False
             login_url = users.create_login_url('/enviados')
@@ -71,7 +71,7 @@ class RecibidosHandler(BaseHandler):
             logged_in = True
             logout_url = users.create_logout_url('/recibidos')
 
-            recibidos = {"logged_in": logged_in, "logout_url": logout_url, "user": user}
+            recibidos = {"activo": "recibidos", "logged_in": logged_in, "logout_url": logout_url, "user": user}
         else:
             logged_in = False
             login_url = users.create_login_url('/recibidos')
@@ -88,7 +88,7 @@ class NuevoHandler(BaseHandler):
             logged_in = True
             logout_url = users.create_logout_url('/nuevo-mensaje')
 
-            nuevomensaje = {"logged_in": logged_in, "logout_url": logout_url, "user": user}
+            nuevomensaje = {"activo": "nuevo-mensaje", "logged_in": logged_in, "logout_url": logout_url, "user": user}
         else:
             logged_in = False
             login_url = users.create_login_url('/enviados')
@@ -105,7 +105,7 @@ class TiempoHandler(BaseHandler):
             logged_in = True
             logout_url = users.create_logout_url('/el-tiempo')
 
-            eltiempo = {"logged_in": logged_in, "logout_url": logout_url, "user": user}
+            eltiempo = {"activo": "el-tiempo", "logged_in": logged_in, "logout_url": logout_url, "user": user}
         else:
             logged_in = False
             login_url = users.create_login_url('/el-tiempo')
