@@ -40,12 +40,14 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
               <ul class="nav navbar-nav navbar-right">
+                  {% if logged_in %}
                 <ul class="nav navbar-nav">
                   <li class="{% if activo == 'recibidos'%}active{%endif%}" ><a href="/recibidos">Recibidos</a></li>
                   <li class="{% if activo == 'enviados'%}active{%endif%}"><a href="/enviados">Enviados</a></li>
                   <li class="{% if activo == 'nuevo-mensaje'%}active{%endif%}"><a href="/nuevo-mensaje">Nuevo mensaje</a></li>
                   <li class="{% if activo == 'el-tiempo'%}active{%endif%}"><a href="/el-tiempo">El tiempo</a></li>
                 </ul>
+                  {% endif %}
                 <form class="navbar-form navbar-left">
                     {% if logged_in %}
                     <a href="{{ logout_url }}" class="btn btn-primary navbar-btn-sm active">Logout</a>
