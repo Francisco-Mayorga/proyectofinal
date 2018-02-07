@@ -2,6 +2,10 @@ body {
     font-family: sans-serif;
 }
 
+.navbar-brand {
+    margin-top: -13px;
+}
+
 .arriba {
     height: 50px;
 }
