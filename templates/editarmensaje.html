@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Editar {% endblock title %}
+{% block page_content %}
+    <h1>Editar</h1>
+    <form action="/message/{{ message.key.id() }}/editar" method="post">
+        <input name="asunto" value="{{ message.asunto }}">
+        <input name="email" value="{{ message.email }}">
+        <input name="texto" value="{{ message.texto }}">
+
+        <button type="submit">OK</button>
+    </form>
+{% endblock page_content %}

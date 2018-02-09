@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Detalles de los mensajes {% endblock title %}
+{% block page_content %}
+<div class="container-fluid">
+    <div class="col-sm-4 col-md-4 col-md-offset-4  wow fadeInLeft" data-wow-delay="0.5s"><h1>Detalles de los mensajes</h1>
+        <p>Message ID: {{ message.key.id() }}</p>
+        <p>Asunto: {{ message.asunto }}</p>
+        <p>Email: {{ message.email }}</p>
+        <p>Texto: {{ message.texto }}</p>
+
+        <p>Fecha: {{ message.created }}</p>
+        <a href="/message/{{ message.key.id() }}/editar">Editar mensaje</a>
+        <br>
+        <a href="/message/{{ message.key.id() }}/borrar">Borrar mensaje</a>
+    </div>
+</div>
+{% endblock page_content %}

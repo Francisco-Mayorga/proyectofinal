@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Borrar mensajes {% endblock title %}
+{% block page_content %}
+    <h1>¿Quieres borrar realmente el mensaje?</h1>
+
+    <form action="/message/{{ message.key.id() }}/borrar" method="post">
+        <button type="submit">SI, ¡eliminalo!</button>
+    </form>
+{% endblock page_content %}

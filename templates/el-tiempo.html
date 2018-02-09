@@ -2,5 +2,18 @@
 
 {% block title %}el tiempo {% endblock title %}
 {% block page_content %}
-    <h1>el-tiempo</h1>
+<div class="container-fluid">
+    <div class="col-sm-4 col-md-4 col-md-offset-4  wow fadeInLeft" data-wow-delay="0.5s">
+      <div class="tiempo">
+        <h2>Weather in location {{ weather_info.name }}</h2>
+
+        <p>Description: {{ weather_info.weather[0].description }}</p>
+        <p>Current temperature: {{ weather_info.main.temp }} degrees Celsius</p>
+      </div>
+
+
+
+
+    </div>
+</div>
 {% endblock page_content %}

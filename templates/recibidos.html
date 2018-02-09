@@ -3,4 +3,7 @@
 {% block title %}recibidos {% endblock title %}
 {% block page_content %}
     <h1>recibidos</h1>
+    {% for message in messages %}
+    <p><a href="/message/{{ message.key.id() }}/detalles">{{ message.asunto }}, {{ message.created }}, {{ message.receiver }}</a></p>
+    {% endfor %}
 {% endblock page_content %}
