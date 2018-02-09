@@ -127,11 +127,12 @@ class NuevoHandler(BaseHandler):
         sender = user.user_id()
         receiver = user.user_id()
         email = user.email()
+        nickname = user.user_id()
 
         if not asunto:
             asunto = u"anónimo"
 
-        new_message = Message(asunto=asunto, texto=texto, email=email, sender=sender, receiver=receiver)
+        new_message = Message(asunto=asunto, texto=texto, email=email, sender=sender, receiver=receiver, user_id=user.user_id(), nickname=nickname)
         new_message.put()
 
         return self.redirect_to('enviados')
