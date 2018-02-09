@@ -124,12 +124,14 @@ class NuevoHandler(BaseHandler):
         # get inputs values
         asunto = self.request.get("asunto")
         texto = self.request.get("texto")
+        sender = user.user_id()
+        receiver = user.user_id()
         email = user.email()
 
         if not asunto:
             asunto = u"anónimo"
 
-        new_message = Message(asunto=asunto, texto=texto, email=email, sender=user.user_id(), receiver=user.user_id())
+        new_message = Message(asunto=asunto, texto=texto, email=email, sender=sender, receiver=receiver)
         new_message.put()
 
         return self.redirect_to('enviados')
@@ -147,7 +149,7 @@ class TiempoHandler(BaseHandler):
             return self.redirect_to("index")
 
 
-        url = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&units=metric&appid=4f6c7a15fb1b6fc272b05225a0e4bcb9"
+        url = "http://api.openweathermap.org/data/2.5/weather?q=Malaga,es&units=metric&appid=4f6c7a15fb1b6fc272b05225a0e4bcb9"
 
         response = urlfetch.fetch(url)
         data = response.content

@@ -5,15 +5,17 @@
 <div class="container-fluid">
     <div class="col-sm-4 col-md-4 col-md-offset-4  wow fadeInLeft" data-wow-delay="0.5s">
       <div class="tiempo">
-        <h2>Weather in location {{ weather_info.name }}</h2>
+        <h1>El tiempo en {{ weather_info.name }}</h1>
+        <hr size="10"/>
+        <p>Descripción: {{ weather_info.weather[0].description }}</p>
+        <p>Temperatura: {{ weather_info.main.temp }} ºC</p>
+        <p>Temperatura mínima: {{ weather_info.main.temp_min }} ºC</p>
+        <p>Temperatura máxima: {{ weather_info.main.temp_max }} ºC</p>
+        <p>Humedad: {{ weather_info.main.humidity }} %</p>
+        <p>Viento: {{ weather_info.wind.speed }} Km/h</p>
 
-        <p>Description: {{ weather_info.weather[0].description }}</p>
-        <p>Current temperature: {{ weather_info.main.temp }} degrees Celsius</p>
+
       </div>
-
-
-
-
     </div>
 </div>
 {% endblock page_content %}
