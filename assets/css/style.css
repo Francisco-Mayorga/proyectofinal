@@ -23,6 +23,10 @@ h1, h4 {
     color: #36A0FF;
 }
 
+.form-control#texto {
+    resize: none;
+}
+
 .well.well-sm {
     border: 1px solid #f00;
 }

@@ -24,9 +24,9 @@
                                     <option value="" selected disabled>
                                         Email destinatario
                                     </option>
-                                    <option value="">
+                                    <option value="nickname">
                                         {% for receiver in users_db %}
-                                        {{ newmessage.nickname }}
+                                        {{  user.nickname }}
                                         {% endfor %}
                                     </option>
                                 </select>
