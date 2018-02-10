@@ -2,12 +2,45 @@
 
 {% block title %}Editar {% endblock title %}
 {% block page_content %}
-    <h1>Editar</h1>
-    <form action="/message/{{ message.key.id() }}/editar" method="post">
-        <input name="asunto" value="{{ message.asunto }}">
-        <input name="email" value="{{ message.email }}">
-        <input name="texto" value="{{ message.texto }}">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 wow fadeInLeft" data-wow-delay="0.5s">
+            <div class="well well-sm">
+                <form class="form-horizontal" action="/message/{{ message.key.id() }}/editar" method="post">
+                    <fieldset>
+                        <legend class="text-center header">Editar mensaje</legend>
 
-        <button type="submit">OK</button>
-    </form>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input value="{{ message.asunto }}" id="dasunto" name="asunto" type="text" class="form-control" maxlength="70">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input value="{{ message.email }}" class="form-control" id="demail" name="email">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="dtexto" rows="7" name="texto">{{ message.texto }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">ok</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock page_content %}

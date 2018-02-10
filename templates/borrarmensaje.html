@@ -2,9 +2,16 @@
 
 {% block title %}Borrar mensajes {% endblock title %}
 {% block page_content %}
-    <h1>¿Quieres borrar realmente el mensaje?</h1>
+<div class="container-fluid">
+    <div class="col-sm-8 col-md-8 col-md-offset-2  wow fadeInLeft" data-wow-delay="0.5s">
+      <div class="borrar">
+        <h1>¿Quieres borrar realmente el mensaje?</h1>
+        <hr size="10"/>
+          <form action="/message/{{ message.key.id() }}/borrar" method="post">
+        <button type="submit" class="btn btn-danger btn-lg">SI, ¡elimínalo!</button>
 
-    <form action="/message/{{ message.key.id() }}/borrar" method="post">
-        <button type="submit">SI, ¡eliminalo!</button>
     </form>
+      </div>
+    </div>
+</div>
 {% endblock page_content %}
