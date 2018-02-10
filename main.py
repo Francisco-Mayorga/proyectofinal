@@ -99,7 +99,7 @@ class RecibidosHandler(BaseHandler):
         else:
             return self.redirect_to("index")
 
-        messages = Message.query(Message.deleted == False, Message.receiver == user.user_id()).fetch()
+        messages = Message.query(Message.deleted == False, Message.receiver != user.user_id()).fetch()
         recibidos["messages"] = messages
         return self.render_template("recibidos.html", params=recibidos)
 
@@ -124,8 +124,7 @@ class NuevoHandler(BaseHandler):
         texto = self.request.get("texto")
         email = user.email()
         sender = user.user_id()
-        receiver = user.user_id()
-        nickname = self.request.get("nickname")
+        receiver = self.request.get("receiver")
 
         if not asunto:
             asunto = u"anónimo"
@@ -134,11 +133,8 @@ class NuevoHandler(BaseHandler):
 
         new_message = Message(asunto=asunto, texto=texto, email=email, sender=sender, receiver=receiver)
         new_message.put()
-        new_user_db = User(nickname=nickname)
-        new_user_db.put()
 
-        context = {"nickname": "nickname" }
-        return self.redirect_to('enviados', params= context)
+        return self.redirect_to('enviados')
 
 
 
