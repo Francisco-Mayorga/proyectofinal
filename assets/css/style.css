@@ -28,14 +28,14 @@ h1, h4 {
 }
 
 .well.well-sm {
-    border: 1px solid #f00;
+    border: 1.5px solid #f00;
 }
 
 .tiempo {
     text-align:  center;
     padding: 9px;
     border-radius: 3px;
-    border: 1px solid #f00;
+    border: 1.5px solid #f00;
     background-color: #f5f5f5;
 }
 
@@ -44,31 +44,15 @@ h1, h4 {
     font-size: 27px;
 }
 
-.mensajesenviados {
-    text-align:  center;
-    padding: 9px;
-    border-radius: 3px;
-    border: 1px solid #f00;
-    background-color: #f5f5f5;
-}
-
-.mensajesenviados h1{
-    color: #36A0FF;
-    font-size: 27px;
-
-.mensajesenviados a{
-    color: #36A0FF;
-}
-
 .mensajesrecibidos {
-    text-align:  center;
+    text-align: center;
     padding: 9px;
     border-radius: 3px;
-    border: 1px solid #f00;
+    border: 1.5px solid #f00;
     background-color: #f5f5f5;
 }
 
-.mensajesrecibidos h1{
+.mensajesrecibidos h1 {
     color: #36A0FF;
     font-size: 27px;
 }
@@ -77,11 +61,28 @@ h1, h4 {
     color: #36A0FF;
 }
 
+.mensajesenviados {
+    text-align:  center;
+    padding: 9px;
+    border-radius: 3px;
+    border: 1.5px solid #f00;
+    background-color: #f5f5f5;
+}
+
+.mensajesenviados h1{
+    color: #36A0FF;
+    font-size: 27px;
+}
+
+.mensajesenviados a{
+    color: #36A0FF;
+}
+
 .detallesmensajes {
     text-align:  justify;
     padding: 9px;
     border-radius: 3px;
-    border: 1px solid #f00;
+    border: 1.5px solid #f00;
     background-color: #f5f5f5;
     width:100%;
     word-wrap: break-word;
