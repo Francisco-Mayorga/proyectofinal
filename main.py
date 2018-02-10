@@ -106,11 +106,9 @@ class RecibidosHandler(BaseHandler):
 class NuevoHandler(BaseHandler):
     def get(self):
         user = users.get_current_user()
-
         if user:
             logged_in = True
             logout_url = users.create_logout_url('/')
-
 
             nuevomensaje = {"activo": "nuevo-mensaje", "logged_in": logged_in, "logout_url": logout_url, "user": user}
         else:
@@ -124,18 +122,25 @@ class NuevoHandler(BaseHandler):
         # get inputs values
         asunto = self.request.get("asunto")
         texto = self.request.get("texto")
+        email = user.email()
         sender = user.user_id()
         receiver = user.user_id()
-        email = user.email()
-        nickname = user.user_id()
+        nickname = self.request.get("nickname")
 
         if not asunto:
             asunto = u"anónimo"
 
-        new_message = Message(asunto=asunto, texto=texto, email=email, sender=sender, receiver=receiver, user_id=user.user_id(), nickname=nickname)
-        new_message.put()
 
-        return self.redirect_to('enviados')
+
+        new_message = Message(asunto=asunto, texto=texto, email=email, sender=sender, receiver=receiver)
+        new_message.put()
+        new_user_db = User(nickname=nickname)
+        new_user_db.put()
+
+        context = {"nickname": "nickname" }
+        return self.redirect_to('enviados', params= context)
+
+
 
 class TiempoHandler(BaseHandler):
     def get(self):

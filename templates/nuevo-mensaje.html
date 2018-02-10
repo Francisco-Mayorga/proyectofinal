@@ -13,7 +13,7 @@
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="fasunto" name="asunto" type="text" placeholder="Asunto" class="form-control">
+                                <input id="fasunto" name="asunto" type="text" placeholder="Asunto" class="form-control" maxlength="70">
                             </div>
                         </div>
 
@@ -21,14 +21,9 @@
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
                             <div class="col-md-8">
                                 <select class="form-control" id="email" name="receiver">
-                                    <option value="" selected disabled>
-                                        Email destinatario
-                                    </option>
-                                    <option value="nickname">
-                                        {% for receiver in users_db %}
-                                        {{  user.nickname }}
-                                        {% endfor %}
-                                    </option>
+                                  {% for user in users_db %}
+                                    <option value="{{ user.user_id }}">{{ user.nickname }}</option>
+                                  {% endfor %}
                                 </select>
                             </div>
                         </div>

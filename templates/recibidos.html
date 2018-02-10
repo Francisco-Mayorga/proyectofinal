@@ -2,8 +2,16 @@
 
 {% block title %}recibidos {% endblock title %}
 {% block page_content %}
-    <h1>recibidos</h1>
-    {% for message in messages %}
-    <p><a href="/message/{{ message.key.id() }}/detalles">{{ message.asunto }}, {{ message.created }}, {{ message.receiver }}</a></p>
-    {% endfor %}
+<div class="container-fluid">
+    <div class="col-sm-8 col-md-8 col-md-offset-2  wow fadeInLeft" data-wow-delay="0.5s">
+      <div class="mensajesrecibidos">
+        <h1>Mensajes recibidos</h1>
+        <hr size="10"/>
+        {% for message in messages %}
+        <p><a href="/message/{{ message.key.id() }}/detalles">{{ message.asunto }}, {{ message.created }}, {{ user.nickname }}</a></p>
+        {% endfor %}
+      </div>
+    </div>
+</div>
+
 {% endblock page_content %}
