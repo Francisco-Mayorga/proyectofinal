@@ -130,11 +130,14 @@ class NuevoHandler(BaseHandler):
         email = user.email()
         sender = user.user_id()
         receiver = self.request.get("receiver")
+        nickname = user.user_id()
+        usuario = user.user_id()
+
 
         if not asunto:
             asunto = u"anónimo"
 
-        context = {"asunto": asunto, "email": email, "texto": texto, "receiver": receiver}
+        context = {"asunto": asunto, "email": email, "texto": texto, "receiver": receiver, "nickname": nickname, "user_id": usuario}
 
         new_message = Message(asunto=asunto, texto=texto, email=email, sender=sender, receiver=receiver)
         new_message.put()
