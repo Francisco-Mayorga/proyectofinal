@@ -99,7 +99,8 @@ class RecibidosHandler(BaseHandler):
         else:
             return self.redirect_to("index")
 
-        messages = Message.query(Message.deleted == False, Message.sender < user.user_id() or Message.sender > user.user_id()).fetch()
+        messages = Message.query(Message.deleted == False).filter(Message.receiver == user.user_id()).fetch()
+
         recibidos["messages"] = messages
         return self.render_template("recibidos.html", params=recibidos)
 
