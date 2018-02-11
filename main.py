@@ -76,7 +76,7 @@ class EnviadosHandler(BaseHandler):
         else:
             return self.redirect_to("index")
 
-        messages = Message.query(Message.deleted == False, Message.sender == user.user_id()).fetch()
+        messages = Message.query(Message.deleted == False).filter(Message.sender == user.user_id()).fetch()
         enviados["messages"] = messages
         return self.render_template("enviados.html", params=enviados)
 
