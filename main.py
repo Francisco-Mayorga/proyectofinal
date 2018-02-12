@@ -138,7 +138,7 @@ class NuevoHandler(BaseHandler):
 
         context = {"asunto": asunto, "email": email, "texto": texto, "receiver": receiver, "nickname": nickname}
 
-        new_message = Message(asunto=asunto, texto=texto, email=email, sender=sender, receiver=receiver, nickname=nickname)
+        new_message = Message(asunto=asunto, texto=texto, email=email, sender=sender, receiver=receiver)
         new_message.put()
 
         return self.redirect_to('enviados', params=context)
