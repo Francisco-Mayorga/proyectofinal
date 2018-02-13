@@ -107,11 +107,14 @@ class RecibidosHandler(BaseHandler):
 class NuevoHandler(BaseHandler):
     def get(self):
         user = users.get_current_user()
+        users_db = User.query().fetch()
+
+
         if user:
             logged_in = True
             logout_url = users.create_logout_url('/')
 
-            nuevomensaje = {"activo": "nuevo-mensaje", "logged_in": logged_in, "logout_url": logout_url, "user": user}
+            nuevomensaje = {"activo": "nuevo-mensaje", "logged_in": logged_in, "logout_url": logout_url, "user": user, "users_db": users_db}
         else:
             return self.redirect_to("index")
 
