@@ -109,7 +109,6 @@ class NuevoHandler(BaseHandler):
         user = users.get_current_user()
         users_db = User.query().fetch()
 
-
         if user:
             logged_in = True
             logout_url = users.create_logout_url('/')
